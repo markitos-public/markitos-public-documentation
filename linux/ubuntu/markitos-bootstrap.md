@@ -1,3 +1,11 @@
+#:[.'.]:>--------------------------------------------------
+#:[.'.]:> Marco Antonio - markitos
+#:[.'.]:> Markitos DevSecOps Kulture - El camino del artesan@
+#:[.'.]:> markitos.es.info@gmail.com
+#:[.'.]:> https://github.com/markitos-es
+#:[.'.]:> https://discord.com/invite/YZWm2cYF 
+#:[.'.]:>--------------------------------------------------
+
 # First Steps
 
 ## As Normal User (SET MY_* VARS)
@@ -8,7 +16,7 @@ export MY_USERNAME=
 export MY_HOSTNAME=
 env | grep -E 'MY_USERNAME|MY_PASSWORD|MY_HOSTNAME'
 sudo -i su
-export MY_PASSWORD=
+export MY_PASSWORD=alatri
 export MY_USERNAME=
 export MY_HOSTNAME=
 env | grep -E 'MY_USERNAME|MY_PASSWORD|MY_HOSTNAME'
@@ -27,7 +35,6 @@ echo "${MY_USERNAME}    ALL = (ALL) NOPASSWD: ALL" >>/etc/sudoers &&
 hostnamectl set-hostname "${MY_HOSTNAME}"
 echo "" >> /etc/hosts
 echo "#:{.'.}>----- ${MY_HOSTNAME} network -----" >> /etc/hosts
-echo "192.168.1.120 mdkcdn"   >> /etc/hosts
 echo "192.168.1.200 prometeo1" >> /etc/hosts
 echo "192.168.1.250 titan1"   >> /etc/hosts
 echo "192.168.1.251 titan2"   >> /etc/hosts
@@ -35,14 +42,24 @@ echo "192.168.1.252 titan3"   >> /etc/hosts
 echo "#:{.'.}>----- ${MY_HOSTNAME} network -----" >> /etc/hosts
 echo "" >> /etc/hosts
 
-echo "" >> ~/.bashrc
-echo "#:{.'.}>----- aliases ${MY_HOSTNAME} -----" >> ~/.bashrc
-echo "alias prometeo1=\"sshpass -p ${MY_PASSWORD} ssh ${MY_USERNAME}@prometeo1\"" >> ~/.bashrc
-echo "alias titan1=\"sshpass -p ${MY_PASSWORD} ssh ${MY_USERNAME}@titan1\"" >> ~/.bashrc
-echo "alias titan2=\"sshpass -p ${MY_PASSWORD} ssh ${MY_USERNAME}@titan2\"" >> ~/.bashrc
-echo "alias titan3=\"sshpass -p ${MY_PASSWORD} ssh ${MY_USERNAME}@titan3\"" >> ~/.bashrc
-echo "#:{.'.}>----- alias ${MY_HOSTNAME} -----" >> ~/.bashrc
-echo "" >> ~/.bashrc
+echo "" >> /etc/bash.bashrc
+echo "#:{.'.}>" >> /etc/bash.bashrc
+echo "#:{.'.}>----- startof.aliases ${MY_HOSTNAME} -----" >> /etc/bash.bashrc
+echo "alias prometeo1=\"sshpass -p ${MY_PASSWORD} ssh ${MY_USERNAME}@prometeo1\"" >> /etc/bash.bashrc
+echo "alias titan1=\"sshpass -p ${MY_PASSWORD} ssh ${MY_USERNAME}@titan1\"" >> /etc/bash.bashrc
+echo "alias titan2=\"sshpass -p ${MY_PASSWORD} ssh ${MY_USERNAME}@titan2\"" >> /etc/bash.bashrc
+echo "alias titan3=\"sshpass -p ${MY_PASSWORD} ssh ${MY_USERNAME}@titan3\"" >> /etc/bash.bashrc
+echo "#:{.'.}>----- endof.alias ${MY_HOSTNAME} -----" >> /etc/bash.bashrc
+echo "#:{.'.}>" >> /etc/bash.bashrc
+echo "#:{.'.}>----- startof.misc-sets ${MY_HOSTNAME} -----" >> /etc/bash.bashrc
+echo "export LANG=es_ES.UTF-8" >> /etc/bash.bashrc
+echo "if [[ -n \$SSH_CONNECTION ]]; then" >> /etc/bash.bashrc
+echo "   export EDITOR='nano'" >> /etc/bash.bashrc
+echo " else" >> /etc/bash.bashrc
+echo "   export EDITOR='nano'" >> /etc/bash.bashrc
+echo "fi" >> /etc/bash.bashrc
+echo "#:{.'.}>----- endof.misc-sets ${MY_HOSTNAME} -----" >> /etc/bash.bashrc
+echo "" >> /etc/bash.bashrc
 exit
 ```
 
