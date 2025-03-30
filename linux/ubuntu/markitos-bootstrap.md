@@ -11,14 +11,17 @@
 ## As Normal User (SET MY_* VARS)
 Switch to the root user:
 ```sh
-export MY_PASSWORD=
-export MY_USERNAME=
-export MY_HOSTNAME=
+export MY_PASSWORD=alatrist3DSG18j.
+export MY_USERNAME=markitos
+export MY_HOSTNAME=teseo
 env | grep -E 'MY_USERNAME|MY_PASSWORD|MY_HOSTNAME'
+
+# AMBOS
+
 sudo -i su
-export MY_PASSWORD=alatri
-export MY_USERNAME=
-export MY_HOSTNAME=
+export MY_PASSWORD=alatrist3DSG18j.
+export MY_USERNAME=markitos
+export MY_HOSTNAME=teseo
 env | grep -E 'MY_USERNAME|MY_PASSWORD|MY_HOSTNAME'
 ```
 
@@ -74,79 +77,73 @@ sudo chown $USER /var/run/docker.sock
 
 ## Go with Goenv
 ### Option 1: Goenv as Normal User
-Install Goenv and set up Go environment:
-```sh
-git clone https://github.com/go-nv/goenv.git ~/.goenv
-echo "" >> ~/.bashrc
-echo "#:{.'.}>----- golang sets -----" >> ~/.bashrc
-echo 'export GOENV_ROOT="$HOME/.goenv"' >> ~/.bashrc
-echo 'export PATH="$GOENV_ROOT/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(goenv init -)"' >> ~/.bashrc
-echo 'export PATH="$GOROOT/bin:$PATH"' >> ~/.bashrc
-echo 'export PATH="$PATH:$GOPATH/bin"' >> ~/.bashrc
-echo "#:{.'.}>----- golang sets -----" >> ~/.bashrc
-echo "" >> ~/.bashrc
-source ~/.bashrc
-goenv install 1.24.1
-goenv global 1.24.1
-go version
-```
+# Install Goenv and set up Go environment:
+# ```sh
+# git clone https://github.com/go-nv/goenv.git ~/.goenv
+# echo "" >> ~/.bashrc
+# echo "#:{.'.}>----- golang sets -----" >> ~/.bashrc
+# echo 'export GOENV_ROOT="$HOME/.goenv"' >> ~/.bashrc
+# echo 'export PATH="$GOENV_ROOT/bin:$PATH"' >> ~/.bashrc
+# echo 'eval "$(goenv init -)"' >> ~/.bashrc
+# echo 'export PATH="$GOROOT/bin:$PATH"' >> ~/.bashrc
+# echo 'export PATH="$PATH:$GOPATH/bin"' >> ~/.bashrc
+# echo "#:{.'.}>----- golang sets -----" >> ~/.bashrc
+# echo "" >> ~/.bashrc
+# source ~/.bashrc
+# goenv install 1.24.1
+# goenv global 1.24.1
+# go version
+# ```
 
 ### Option 2: Go as Root
-Download and install Go manually:
-```sh
-sudo su
-cd /tmp
-wget https://go.dev/dl/go1.24.1.linux-amd64.tar.gz -O go.tar.gz
-tar xvfz go.tar.gz 
-mv go /usr/local/
-echo 'export PATH=$PATH:/usr/local/go/bin' >> /etc/bash.bashrc
-exit
-```
+# Download and install Go manually:
+# ```sh
+# sudo su
+# cd /tmp
+# wget https://go.dev/dl/go1.24.1.linux-amd64.tar.gz -O go.tar.gz
+# tar xvfz go.tar.gz 
+# mv go /usr/local/
+# echo 'export PATH=$PATH:/usr/local/go/bin' >> /etc/bash.bashrc
+# exit
+# ```
 
 ## Node with NVM
-Install NVM and set up Node.js:
-```sh
-cd /tmp
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-source ~/.bashrc
-nvm install v20.17.0
-nvm use v20.17.0
-nvm version
-node -v
-npm -v
-```
+# Install NVM and set up Node.js:
+# ```sh
+# cd /tmp
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+# source ~/.bashrc
+# nvm install v20.17.0
+# nvm use v20.17.0
+# nvm version
+# node -v
+# npm -v
+# ```
 
-# Other Tuning Tools
-
-Install Oh My Bash and configure plugins and aliases (current my-theme is copied-duru really cool :D):
-```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-nano ~/.bashrc
-completions=(
-  git
-  composer
-  ssh
-  nvm
-  go
-)
-
-aliases=(
-  general
-)
-
-plugins=(
-  git
-  bashmarks
-  golang
-  goenv
-  nvm
-)
-
-export LANG=es_ES.UTF-8
-if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='nano'
- else
-   export EDITOR='nano'
-fi
-```
+# # Other Tuning Tools
+# 
+# Install Oh My Bash and configure plugins and aliases (current my-theme is copied-duru really cool :D):
+# ```sh
+# bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+# nano ~/.bashrc
+# completions=(
+#   git
+#   composer
+#   ssh
+#   nvm
+#   go
+# )
+# 
+# aliases=(
+#   general
+# )
+# 
+# plugins=(
+#   git
+#   bashmarks
+#   golang
+#   goenv
+#   nvm
+# )
+# 
+# ```
